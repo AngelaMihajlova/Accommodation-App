@@ -35,4 +35,4 @@ jobs:
           context: ./accommodation-app-frontend
           file: ./accommodation-app-frontend/Dockerfile
           push: true
-          tags: angelamihajlova/accommodation-app-frontendg:latest
+          tags: angelamihajlova/accommodation-app-frontend:latest

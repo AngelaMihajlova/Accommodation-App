@@ -27,7 +27,7 @@ jobs:
           context: ./Accommodation-App-backend
           file: ./Accommodation-App-backend/Dockerfile
           push: true
-          tags: angelamihajlova/accommodation-app-backend:latest
+          tags:  ${{ secrets.DOCKER_USERNAME }}/accommodation-app-backend:latest
 
       - name: Build and push frontend Docker image
         uses: docker/build-push-action@v5
@@ -35,4 +35,8 @@ jobs:
           context: ./accommodation-app-frontend
           file: ./accommodation-app-frontend/Dockerfile
           push: true
-          tags: angelamihajlova/accommodation-app-frontend:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/accommodation-app-frontend:latest
+          build-args: |
+            VITE_BACKEND_HOST=backend.local
+            VITE_BACKEND_PORT=80
+            VITE_BACKEND_BASE_PATH=/api

@@ -26,7 +26,7 @@ const EditAccommodationDialog = ({open, onClose, accommodation, onEdit}) => {
 
 
     useEffect(() => {
-        fetch("http://backend:9090/api/accommodations/categories")
+        fetch("http://localhost:9090/api/accommodations/categories")
             .then(res => res.json())
             .then(data => setCategories(data))
             .catch(err => console.error("Failed to fetch categories:", err));

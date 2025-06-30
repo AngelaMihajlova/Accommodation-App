@@ -15,10 +15,13 @@ spec:
     spec:
       containers:
         - name: backend
-          image: angelamihajlova/accommodation-app-backend:latest
+          image: accommodation-app-backend:latest
+          imagePullPolicy: Never
           ports:
             - containerPort: 9090
           env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: dev
             - name: DB_HOST
               valueFrom:
                 configMapKeyRef:
